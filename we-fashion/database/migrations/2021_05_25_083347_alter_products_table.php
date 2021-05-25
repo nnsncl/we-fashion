@@ -14,7 +14,7 @@ class AlterProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->enum('gender', ["male", "femade"])->nullable();
+            $table->enum('gender', ['male', 'female'])->nullable();
         });
     }
 

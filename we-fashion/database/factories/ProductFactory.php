@@ -26,7 +26,8 @@ class ProductFactory extends Factory
             'description' => $this->faker->paragraphs(1, true),
             'price' => $this->faker->randomFloat(2, 0, 999),
             'ref' => $this->faker->regexify('[A-Za-z0-9]{16}'),
-            'discount' => $this->faker->boolean()
+            'discount' => $this->faker->boolean(),
+            'gender' => $this->faker->randomElement(['male', 'female'])
         ];
     }
 }
