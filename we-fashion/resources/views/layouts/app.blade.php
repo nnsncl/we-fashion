@@ -11,9 +11,9 @@
     <nav class="border-b border-gray-200 py-4 px-4 flex items-center justify-between mb-16">
         <p class="text-xl font-bold" >Wf.</p>
         <div class="flex items-center space-x-6 sm:space-x-10 ml-6 sm:ml-10" >
-            <a class="text-base leading-6 font-medium hover:text-gray-600 transition-colors duration-200 py-2 bg-white p-5 rounded-3xl" href="">Soldes</a>
-            <a class="text-base leading-6 font-medium hover:text-gray-600 transition-colors duration-200 py-2" href="">Homme</a>
-            <a class="text-base leading-6 font-medium hover:text-gray-600 transition-colors duration-200 py-2" href="">Femme</a>
+            <a class="text-base leading-6 font-medium hover:text-gray-600 transition-colors duration-200 py-2 bg-white p-5 rounded-3xl" href="">Offers</a>
+            <a class="text-base leading-6 font-medium hover:text-gray-600 transition-colors duration-200 py-2" href="">Men</a>
+            <a class="text-base leading-6 font-medium hover:text-gray-600 transition-colors duration-200 py-2" href="">Women</a>
         </div>
     </nav>
     @yield('content')
