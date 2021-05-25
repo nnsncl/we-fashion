@@ -36,4 +36,15 @@ class ProductsController extends Controller
             ]);
     }
 
+    public function womenProducts(Product $women_products)
+    {
+        $women_products = DB::table('products')
+            ->where('gender', '=', 'female')
+            ->get();
+
+        return view('women.index', [
+                'women_products' => $women_products
+            ]);
+    }
+
 }
