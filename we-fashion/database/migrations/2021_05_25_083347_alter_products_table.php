@@ -14,8 +14,7 @@ class AlterProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->unsignedInteger('category_id')->nullable();
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->enum('gender', ["male", "femade"])->nullable();
         });
     }
 
@@ -26,9 +25,6 @@ class AlterProductsTable extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropForeign('products_category_id_foreign');
-            $table->dropColumn('category_id');
-        });
+        //
     }
 }
