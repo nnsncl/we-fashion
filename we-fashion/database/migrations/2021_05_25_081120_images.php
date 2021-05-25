@@ -16,7 +16,7 @@ class Images extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
             $table->string('href');
-            $table->string('product_id', 16);
+            $table->unsignedInteger('product_id');
         });
     }
 
