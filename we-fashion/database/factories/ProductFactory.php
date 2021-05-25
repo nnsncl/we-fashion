@@ -25,7 +25,8 @@ class ProductFactory extends Factory
             'name' => $this->faker->name(),
             'description' => $this->faker->paragraphs(1, true),
             'price' => $this->faker->randomFloat(2, 0, 999),
-            'ref' => $this->faker->regexify('[A-Za-z0-9]{16}')
+            'ref' => $this->faker->regexify('[A-Za-z0-9]{16}'),
+            'discount' => $this->faker->boolean()
         ];
     }
 }

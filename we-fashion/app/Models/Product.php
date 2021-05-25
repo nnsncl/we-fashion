@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'price', 'ref'];
+    protected $fillable = ['name', 'description', 'price', 'ref', 'discount'];
 
     public function category() {
         return $this->belongsTo(CategoryModel::class);
@@ -18,6 +18,5 @@ class Product extends Model
     public function images() {
         return $this->hasOne(ImagesModel::class);
     }
-
     public $timestamps = false;
 }
