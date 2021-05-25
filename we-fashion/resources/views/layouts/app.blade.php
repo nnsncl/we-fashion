@@ -10,9 +10,9 @@
 </head>
 <body class="bg-gradient-to-r from-white to-gray-200 m-auto w-4/5" >
     <nav class="border-b border-gray-200 py-4 px-4 flex items-center justify-between mb-16">
-        <p class="text-xl font-bold" >Wf.</p>
+        <a href="/" class="text-xl font-bold" >Wf.</a>
         <div class="flex items-center space-x-6 sm:space-x-10 ml-6 sm:ml-10" >
-            <a class="text-base leading-6 font-medium hover:text-gray-600 transition-colors duration-200 py-2 bg-white p-5 rounded-3xl" href="">Offers</a>
+            <a class="text-base leading-6 font-medium hover:text-gray-600 transition-colors duration-200 py-2 bg-white p-5 rounded-3xl" href="/discount">Offers</a>
             <a class="text-base leading-6 font-medium hover:text-gray-600 transition-colors duration-200 py-2" href="">Men</a>
             <a class="text-base leading-6 font-medium hover:text-gray-600 transition-colors duration-200 py-2" href="">Women</a>
         </div>
