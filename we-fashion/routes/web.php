@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::resource('/', ProductsController::class);
+Route::get('/discount', [ProductsController::class, 'discount']);
