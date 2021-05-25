@@ -1,16 +1,18 @@
 <?php
 
-use App\Models\ProductsModel;
+namespace Database\Factories;
+
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class UserFactory extends Factory
+class ProductFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = ProductsModel::class;
+    protected $model = Product::class;
 
     /**
      * Define the model's default state.

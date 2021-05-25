@@ -15,8 +15,8 @@ class Products extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 5, 100);
-            $table->text('description');
+            $table->string('name', 100);
+            $table->text('description')->nullable();
             $table->float('price', 9, 2);
             $table->enum('size', [
                "XL",

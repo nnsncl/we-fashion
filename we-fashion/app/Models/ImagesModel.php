@@ -10,6 +10,8 @@ class ImagesModel extends Model
     use HasFactory;
 
     public function products() {
-        return $this->belongsTo(ProductsModel::class);
+        return $this->belongsTo(Products::class);
     }
+
+    public $timestamps = false;
 }

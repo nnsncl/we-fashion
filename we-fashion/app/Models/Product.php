@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductsModel extends Model
+class Product extends Model
 {
     use HasFactory;
+
     protected $fillable = ['name', 'description', 'price', 'ref'];
 
     public function category() {
@@ -17,4 +18,6 @@ class ProductsModel extends Model
     public function images() {
         return $this->hasOne(ImagesModel::class);
     }
+
+    public $timestamps = false;
 }
