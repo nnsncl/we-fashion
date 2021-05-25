@@ -19,3 +19,4 @@ Route::resource('/', ProductsController::class);
 
 Route::get('/discount', [ProductsController::class, 'discount']);
 Route::get('/men', [ProductsController::class, 'menProducts']);
+Route::get('/women', [ProductsController::class, 'womenProducts']);
