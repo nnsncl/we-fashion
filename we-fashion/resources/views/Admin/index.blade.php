@@ -34,8 +34,12 @@
             </p>
           </div>
           <div class="flex-auto flex gap-6">
-            <button class="w-1/2 p-3 flex items-center justify-center rounded-md bg-gray-900 text-white" type="button">Edit</button>
-            <button class="w-1/2 p-3 flex items-center justify-center rounded-md border border-gray-300" type="button">Delete</button>
+            <a href='admin/{{ $admin->id }}/edit' class="w-1/2 p-3 flex items-center justify-center rounded-lg bg-gray-900 text-white" >Edit</a>
+            <form class="w-1/2" action="admin/{{ $admin->id }}" method='POST' >
+              @csrf
+              @method('delete')
+              <button class="w-full p-3 flex items-center justify-center rounded-lg border border-gray-300" type="sumnit">Delete</button>              
+            </form>
           </div>
         </div>
       </div>
