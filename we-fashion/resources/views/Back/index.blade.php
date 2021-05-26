@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
     {{-- {{ dd($products) }} --}}
@@ -15,6 +15,7 @@
     <div class="w-100 mb-16 " >
         <h1 class="text-3xl sm:text-5xl lg:text-6xl leading-none font-extrabold text-gray-900 tracking-tight mb-8" >Administration</h1>
     </div>
+    {{ dd(Auth::user()) }}
     {{ $products->links() }}
     @foreach ($products as $product)
         <form class="border-2 border-gray-100 p-6 bg-white rounded-xl w-100 mt-3 mb-3" action="">

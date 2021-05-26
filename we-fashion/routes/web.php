@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,14 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Client Routes
-Route::resource('/', ProductsController::class);
+// Guests Routes
+Route::resource('/products', ProductsController::class);
 
 Route::get('/discount', [ProductsController::class, 'discount']);
 Route::get('/details/{product}', [ProductsController::class, 'details'])->where(['id' => '[0-9]+']);
-
 Route::get('/men', [ProductsController::class, 'menProducts']);
 Route::get('/women', [ProductsController::class, 'womenProducts']);
 
-// Admin Routes
-Route::get('/products/edit', [ProductsController::class, 'editProducts']);
+// Admins Routes
+Auth::routes();
+Route::get('/admin', [ProductsController::class, 'editProducts']);
+Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
