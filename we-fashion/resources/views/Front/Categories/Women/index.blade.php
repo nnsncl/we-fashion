@@ -24,7 +24,7 @@
                     </span>
                     <p class="font-bold uppercase text-3xl mb-5">{{ $women_product->name }}</p>
                     <p class="text-sm mb-5">{{ $women_product->description }}</p>
-                    <button class="text-base font-medium rounded-lg p-3 bg-gray-200 text-black">Product details</button>
+                    <a href='/details/{{ $women_product->id }}' class="text-base font-medium rounded-lg p-3 bg-gray-200 text-black">Product details</a>
                 </article>
             @endforeach
         </div>
