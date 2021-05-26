@@ -18,5 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::resource('/', ProductsController::class);
 
 Route::get('/discount', [ProductsController::class, 'discount']);
-Route::get('/men', [ProductsController::class, 'menProducts']);
-Route::get('/women', [ProductsController::class, 'womenProducts']);
+Route::get('/details/{product}', [ProductsController::class, 'details'])->where(['id' => '[0-9]+']);
+
+// Route::get('/men', [ProductsController::class, 'menProducts']);
+// Route::get('/women', [ProductsController::class, 'womenProducts']);

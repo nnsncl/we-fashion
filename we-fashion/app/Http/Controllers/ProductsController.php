@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class ProductsController extends Controller
 {
     public function index() {
-        $products = Product::all();
+        $products = Product::paginate(6);
         return view('index', [
             'products' => $products
         ]);
@@ -18,33 +18,42 @@ class ProductsController extends Controller
     public function discount(Product $discount_products) {
         $discount_products = DB::table('products')
             ->where('discount', '=', 1)
-            ->get();
+            ->paginate(6);
                 
-        return view('discount.index', [
+        return view('front.discount.index', [
             'discount_products' => $discount_products
         ]);
     }
 
-    public function menProducts(Product $men_products)
-    {
-        $men_products = DB::table('products')
-            ->where('gender', '=', 'male')
-            ->get();
-
-        return view('men.index', [
-                'men_products' => $men_products
-            ]);
+    public function details(int $id) {
+        $details = Product::find($id);
+        
+        return view('front.details.index', [
+            'details' => $details
+        ]);
     }
 
-    public function womenProducts(Product $women_products)
-    {
-        $women_products = DB::table('products')
-            ->where('gender', '=', 'female')
-            ->get();
+    // public function menProducts(Product $men_products)
+    // {
+    //     $men_products = DB::table('products')
+    //         ->where('gender', '=', 'male')
+    //         ->get();
 
-        return view('women.index', [
-                'women_products' => $women_products
-            ]);
-    }
+    //     return view('men.index', [
+    //             'men_products' => $men_products
+    //         ]);
+    // }
+
+    // public function womenProducts(Product $women_products)
+    // {
+    //     $women_products = DB::table('products')
+    //         ->where('gender', '=', 'female')
+    //         ->get();
+
+    //     return view('women.index', [
+    //             'women_products' => $women_products
+    //         ]);
+    // }
+
 
 }

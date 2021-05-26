@@ -24,10 +24,9 @@ class ProductFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'description' => $this->faker->paragraphs(1, true),
-            'price' => $this->faker->randomFloat(2, 0, 999),
+            'price' => $this->faker->randomFloat(2, 0, 200),
             'ref' => $this->faker->regexify('[A-Za-z0-9]{16}'),
             'discount' => $this->faker->boolean(),
-            'gender' => $this->faker->randomElement(['male', 'female'])
         ];
     }
 }

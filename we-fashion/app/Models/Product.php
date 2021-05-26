@@ -15,12 +15,15 @@ class Product extends Model
         'price',
         'ref',
         'discount',
-        'gender'
     ];
 
     public function images() {
         return $this->hasOne(ImagesModel::class);
     }
+
+    // public function category() {
+    //     return $this->belongsTo(Category::class);
+    // }
 
     public $timestamps = false;
 }

@@ -2,10 +2,13 @@
 
 @section('content')
     <section class="m-auto w-full " >
-        <div class="w-100 text-center mb-32 " >
+        <div class="w-100 text-center mb-16 " >
             <h1 class="text-3xl sm:text-5xl lg:text-6xl leading-none font-extrabold text-gray-900 tracking-tight mb-8" >Nab your Holiday looks,<br/>night-out 'fits & more.</h1>
         </div>
-        <div class="flex items-start justify-center flex-wrap gap-12 md:gap-32" >
+        <div class="text-center bg-white rounded-xl py-9 mb-16" >
+            <p class="font-bold uppercase text-md">{{ count($products) }} products found</p>
+        </div>
+        <div class="flex items-start justify-center flex-wrap gap-12 md:gap-32" >    
             @foreach ($products as $product)
                 <article class="w-full md:w-4/12 ">
                     <header class="mb-5 relative " >
@@ -33,9 +36,12 @@
                     </div>
                         <p class="font-bold uppercase text-3xl mb-5">{{ $product->name }}</p>
                         <p class="text-sm mb-5">{{ $product->description }}</p>
-                        <button class="text-base font-medium rounded-lg p-3 bg-gray-200 text-black">Product details</button>
+                        <a href='/details/{{ $product->id }}' class="text-base font-medium rounded-lg p-3 bg-gray-200 text-black">Product details</a>
                     </article>
             @endforeach
+        </div>
+        <div class="w-100 text-center my-16 " >
+            {{ $products->links() }}
         </div>
 </section>
 @endsection
