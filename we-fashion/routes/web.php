@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+// Client Routes
 Route::resource('/', ProductsController::class);
 
 Route::get('/discount', [ProductsController::class, 'discount']);
@@ -22,3 +22,6 @@ Route::get('/details/{product}', [ProductsController::class, 'details'])->where(
 
 Route::get('/men', [ProductsController::class, 'menProducts']);
 Route::get('/women', [ProductsController::class, 'womenProducts']);
+
+// Admin Routes
+Route::get('/products/edit', [ProductsController::class, 'editProducts']);
