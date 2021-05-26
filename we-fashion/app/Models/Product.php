@@ -21,9 +21,9 @@ class Product extends Model
         return $this->hasOne(ImagesModel::class);
     }
 
-    // public function category() {
-    //     return $this->belongsTo(Category::class);
-    // }
+    public function category() {
+        return $this->belongsTo(Category::class);
+    }
 
     public $timestamps = false;
 }

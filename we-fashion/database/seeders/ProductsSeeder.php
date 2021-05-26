@@ -15,21 +15,21 @@ class ProductsSeeder extends Seeder
      */
     public function run()
     {
-        // Category::create([
-        //     "gender" => "female"
-        // ]);
+        Category::create([
+            "gender" => "female"
+        ]);
 
-        // Category::create([
-        //     "gender" => "male"
-        // ]);
+        Category::create([
+            "gender" => "male"
+        ]);
 
         Product::factory()
             ->count(80)
-            ->create();
-        //     ->each(function($product) {
-        //         $category = Category::find(rand(1, 2));
-        //         $product->category()->associate($category);
-        //         $product->save();
-        // });
+            ->create()
+            ->each(function($product) {
+                $category = Category::find(rand(1, 2));
+                $product->category()->associate($category);
+                $product->save();
+        });
     }
 }

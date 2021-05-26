@@ -10,7 +10,7 @@ class Category extends Model
     use HasFactory;
 
     public function products() {
-        // return $this->hasMany(ProductsModel::class);
+        return $this->hasMany(ProductsModel::class);
     }
 
     public $timestamps = false;

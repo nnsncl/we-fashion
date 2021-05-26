@@ -33,27 +33,25 @@ class ProductsController extends Controller
         ]);
     }
 
-    // public function menProducts(Product $men_products)
-    // {
-    //     $men_products = DB::table('products')
-    //         ->where('gender', '=', 'male')
-    //         ->get();
+    public function womenProducts(Product $women_products)
+    {
+        $women_products = DB::table('products')
+            ->where('category_id', '=', 1)
+            ->get();
 
-    //     return view('men.index', [
-    //             'men_products' => $men_products
-    //         ]);
-    // }
+        return view('women.index', [
+                'women_products' => $women_products
+            ]);
+    }
 
-    // public function womenProducts(Product $women_products)
-    // {
-    //     $women_products = DB::table('products')
-    //         ->where('gender', '=', 'female')
-    //         ->get();
+    public function menProducts(Product $men_products)
+    {
+        $men_products = DB::table('products')
+            ->where('category_id', '=', 2)
+            ->get();
 
-    //     return view('women.index', [
-    //             'women_products' => $women_products
-    //         ]);
-    // }
-
-
+        return view('men.index', [
+                'men_products' => $men_products
+            ]);
+    }
 }
