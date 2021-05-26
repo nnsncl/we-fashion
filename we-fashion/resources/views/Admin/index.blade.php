@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@guest
-  Please <a class="no-underline hover:underline" href="{{ route('login') }}">{{ __('Login') }}</a>
-@endguest
-
 @if(Auth::user())
   @section('content')
     <div class="mb-16" >
