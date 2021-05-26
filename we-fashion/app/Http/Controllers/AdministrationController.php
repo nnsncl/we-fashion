@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Administration;
+use App\Models\Product;
 
 class AdministrationController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth', ['except' => Product::class ]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -46,8 +51,11 @@ class AdministrationController extends Controller
             'size' => $request->input('size'),
             'published' => $request->input('published'),
             'discount' => $request->input('discount'),
-            'ref' => $request->input('ref')
+            'ref' => $request->input('ref'),
+            'user_id' => auth()->user()->id
         ]);
+
+
 
         return redirect('/admin');
     }
