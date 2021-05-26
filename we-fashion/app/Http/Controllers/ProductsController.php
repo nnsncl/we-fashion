@@ -39,7 +39,7 @@ class ProductsController extends Controller
             ->where('category_id', '=', 1)
             ->get();
 
-        return view('women.index', [
+        return view('front.categories.women.index', [
                 'women_products' => $women_products
             ]);
     }
@@ -50,7 +50,7 @@ class ProductsController extends Controller
             ->where('category_id', '=', 2)
             ->get();
 
-        return view('men.index', [
+        return view('front.categories.men.index', [
                 'men_products' => $men_products
             ]);
     }
