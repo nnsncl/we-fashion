@@ -71,7 +71,8 @@ class AdministrationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Administration::find($id);
+        return view('admin.edit')->with('product', $product);
     }
 
     /**
@@ -83,7 +84,18 @@ class AdministrationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Administration::where('id', '=', $id)
+            ->update([
+                'name' => $request->input('name'),
+                'description' => $request->input('description'),
+                'price' => $request->input('price'),
+                'size' => $request->input('size'),
+                'published' => $request->input('published'),
+                'discount' => $request->input('discount'),
+                'ref' => $request->input('ref')
+        ]);
+
+        return redirect('/admin');
     }
 
     /**
@@ -94,6 +106,9 @@ class AdministrationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Administration::find($id);
+        $product->delete();
+
+        return redirect('/admin');
     }
 }
