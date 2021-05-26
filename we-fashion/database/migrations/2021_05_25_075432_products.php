@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use phpDocumentor\Reflection\Types\Nullable;
 
 class Products extends Migration
 {
@@ -25,8 +26,8 @@ class Products extends Migration
                "S",
                "XS",
             ])->default('L');
-            $table->boolean("published")->default(false);
-            $table->boolean("discount")->default(false);
+            $table->boolean("published")->default(false)->nullable();
+            $table->boolean("discount")->default(false)->nullable();
             $table->string('ref', 16);
         });
     }
