@@ -21,6 +21,7 @@ class Administration extends Model
         'published',
         'discount',
         'ref',
+        'user_id'
     ];
     
 }
