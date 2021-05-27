@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdministrationController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -26,5 +27,6 @@ Route::get('/women', [ProductsController::class, 'womenProducts']);
 // Admins Routes
 Auth::routes();
 Route::resource('/admin', AdministrationController::class);
+Route::resource('/admin/category', CategoryController::class);
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
