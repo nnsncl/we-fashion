@@ -1,10 +1,13 @@
 @extends('layouts.master')
-
 @if(Auth::user())
   @section('content')
-    <div class="mb-16" >
+    <div class="mb-9" >
         <h1 class="text-3xl sm:text-5xl lg:text-6xl leading-none font-extrabold text-gray-900 tracking-tight mb-3" >Hello,&nbsp;{{ Auth::user()->name }}</h1>
         <a href="{{ route('products.create') }}" class="w-full sm:w-80 px-6 py-3 flex items-center justify-center rounded-md bg-gray-900 text-white">Add a new product&nbsp;&rarr;</a>
+    </div>
+    <div class="border-b border-gray-200 py-4 px-4 flex items-center gap-6 mb-16">
+      <a class="text-sm font-bold hover:text-gray-600 transition-colors duration-200 py-2" href="{{ route('products.index') }}">Products</a>
+      <a class="text-sm font-light hover:text-gray-600 transition-colors duration-200 py-2" href="{{ route('categories.index') }}">Categories</a>
     </div>
     {{ $administration->links() }}
     <div class="my-6 flex items-start justify-between flex-wrap gap-6" >

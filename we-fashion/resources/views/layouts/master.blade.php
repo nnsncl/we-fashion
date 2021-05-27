@@ -11,11 +11,10 @@
 <body class="bg-gradient-to-r from-white to-gray-200 m-auto w-4/5" >
     <nav class="border-b border-gray-200 py-4 px-4 flex items-center justify-between mb-16">
         <div class="flex items-center gap-5" >
-            <a href="/" style="color:#66EB9A;" class="text-md font-bold" >WF</a>
+            <a href="{{ route('index') }}" style="color:#66EB9A;" class="text-md font-bold" >WF</a>
             <a class="text-sm font-medium hover:text-gray-600 transition-colors duration-200 py-2" href="/discount">Offers</a>
             <a class="text-sm font-medium hover:text-gray-600 transition-colors duration-200 py-2" href="/men">Men</a>
             <a class="text-sm font-medium hover:text-gray-600 transition-colors duration-200 py-2" href="/women">Women</a>
-           
         </div>
         <div class="flex items-center flex-wrap gap-5" >
             @guest
