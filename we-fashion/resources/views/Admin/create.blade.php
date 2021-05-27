@@ -47,7 +47,7 @@
         </div>
         <div class="flex-auto flex gap-6">
             <button class="w-1/2 p-3 flex items-center justify-center rounded-md bg-black text-white" type="submit">Create</button>
-            <button class="w-1/2 p-3 flex items-center justify-center rounded-md border border-gray-300" type="button">Cancel</button>
+            <a href="/admin" class="w-1/2 p-3 flex items-center justify-center rounded-md border border-gray-300" >Cancel</a>
         </div>
     </form>
 @endsection

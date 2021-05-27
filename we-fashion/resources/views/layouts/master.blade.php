@@ -10,11 +10,31 @@
 </head>
 <body class="bg-gradient-to-r from-white to-gray-200 m-auto w-4/5" >
     <nav class="border-b border-gray-200 py-4 px-4 flex items-center justify-between mb-16">
-        <a href="/products" style="color:#66EB9A;" class="text-xl font-bold" >WE FASHION</a>
-        <div class="flex items-center space-x-6 sm:space-x-10 ml-6 sm:ml-10" >
-            <a class="text-base leading-6 font-medium hover:text-gray-600 transition-colors duration-200 py-2 bg-white p-5 rounded-3xl" href="/discount">Offers</a>
-            <a class="text-base leading-6 font-medium hover:text-gray-600 transition-colors duration-200 py-2" href="/men">Men</a>
-            <a class="text-base leading-6 font-medium hover:text-gray-600 transition-colors duration-200 py-2" href="/women">Women</a>
+        <div class="flex items-center gap-5" >
+            <a href="/products" style="color:#66EB9A;" class="text-md font-bold" >WF</a>
+            <a class="text-sm font-medium hover:text-gray-600 transition-colors duration-200 py-2" href="/discount">Offers</a>
+            <a class="text-sm font-medium hover:text-gray-600 transition-colors duration-200 py-2" href="/men">Men</a>
+            <a class="text-sm font-medium hover:text-gray-600 transition-colors duration-200 py-2" href="/women">Women</a>
+           
+        </div>
+        <div class="flex items-center flex-wrap gap-5" >
+            @guest
+                <a href="{{ route('login') }}">
+                    <svg fill="black"  width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M10,17.25V14H3V10H10V6.75L15.25,12L10,17.25M8,2H17C18.1,2 19,2.9 19,4V20C19,21.1 18.1,22 17,22H8C6.9,22 6,21.1 6,20V16H8V20H17V4H8V8H6V4C6,2.9 6.9,2 8,2Z" />
+                    </svg>    
+                </a>
+                @else
+                <a class="text-sm font-medium hover:text-gray-600 transition-colors duration-200 py-2" href="/admin">Admin</a>
+                <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M17,17.25V14H10V10H17V6.75L22.25,12L17,17.25M13,2C14.1,2 15,2.9 15,4V8H13V4H4V20H13V16H15V20C15,21.1 14.1,22 13,22H4C2.9,22 2,21.1 2,20V4C2,2.9 2.9,2 4,2H13Z" />
+                    </svg>
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                    {{ csrf_field() }}
+                </form>
+            @endguest
         </div>
     </nav>
     @yield('content')

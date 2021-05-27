@@ -54,11 +54,4 @@ class ProductsController extends Controller
                 'men_products' => $men_products
             ]);
     }
-
-    // public function editProducts() {
-    //     $products = Product::paginate(10);
-    //     return view('back.index', [
-    //         'products' => $products
-    //     ]);
-    // }
 }
