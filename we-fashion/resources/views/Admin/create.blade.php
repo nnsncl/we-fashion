@@ -24,13 +24,59 @@
                     <label class="font-bold mb-1" for='size'>Size</label>
                     <input class="text-lg outline-none py-3" name='size' placeholder="Product size" />
                 </fieldset>
-                <fieldset class="flex flex-col mb-3">
-                    <label class="font-bold mb-1" for='published'>Published</label>
-                    <input class="text-lg outline-none py-3" name='published' placeholder="true, false" />
+                <fieldset class="flex gap-3 mb-3">
+                    <div>
+                        <label class="font-bold mb-1" for='published'>Public</label>
+                        <input
+                            class="text-lg outline-none py-3"
+                            name="published"
+                            type="radio"
+                            value="0"
+                            @if (old('published') === 0)
+                                checked
+                            @endif
+
+                        />
+                    </div>
+                    <div>
+                        <label class="font-bold mb-1" for='published'>Private</label>
+                        <input
+                            class="text-lg outline-none py-3"
+                            name="published"
+                            type="radio"
+                            value="1"
+                            @if (old('published') === 1)
+                                checked
+                            @endif
+                        />
+                    </div>
                 </fieldset>
-                <fieldset class="flex flex-col mb-3">
-                    <label class="font-bold mb-1" for='discount'>Discount</label>
-                    <input class="text-lg outline-none py-3" name='discount' placeholder="true, false" />
+                <fieldset class="flex gap-3 mb-3">
+                    <div>
+                        <label class="font-bold mb-1" for='discount'>Active offer</label>
+                        <input
+                            class="text-lg outline-none py-3"
+                            name="discount"
+                            type="radio"
+                            value="0"
+                            @if (old('discount') === 0)
+                                checked
+                            @endif
+
+                        />
+                    </div>
+                    <div>
+                        <label class="font-bold mb-1" for='discount'>Disable offer</label>
+                        <input
+                            class="text-lg outline-none py-3"
+                            name="discount"
+                            type="radio"
+                            value="1"
+                            @if (old('discount') === 1)
+                                checked
+                            @endif
+                        />
+                    </div>
                 </fieldset>
                 <fieldset class="flex flex-col mb-3">
                     <label class="font-bold mb-1" for='ref'>Reference</label>
