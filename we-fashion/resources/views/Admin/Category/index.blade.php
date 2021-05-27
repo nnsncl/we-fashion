@@ -1,51 +1,29 @@
 @extends('layouts.master')
 
-@if(Auth::user())
   @section('content')
     <div class="mb-16" >
         <h1 class="text-3xl sm:text-5xl lg:text-6xl leading-none font-extrabold text-gray-900 tracking-tight mb-3" >Categories manager</h1>
-        <a href="admin/create" class="w-full sm:w-80 px-6 py-3 flex items-center justify-center rounded-md bg-gray-900 text-white">Add a new category&nbsp;&rarr;</a>
+        <a href="{{ route('categories.create') }}" class="w-full sm:w-80 px-6 py-3 flex items-center justify-center rounded-md bg-gray-900 text-white">Add a new category&nbsp;&rarr;</a>
     </div>
-    <div class="my-6 flex items-start justify-between flex-wrap gap-6" >
-      {{-- @foreach ($administration as $admin)
-        <div class="flex w-full lg:w-5/12">
-          <div class="flex-none w-44 relative">
-            <img src="https://content.asos-media.com/-/media/images/articles/men/2019/02/22-fri/how-asos-does-new-season-denim/mw-asos-style-feed-staff-style-denim-01.jpg?h=1100&w=870&la=fr-FR&hash=7B8220F6CF8523ADAC864F06AF84411B" alt="" class="h-full max-h-80 rounded-2xl absolute inset-0 w-full object-cover" />
-          </div>
-          <div class="flex-auto p-6">
-            <div class="flex flex-wrap mb-9">
-              <p class="flex-auto text-xl font-semibold">{{ $admin->name }}</p>
-              <p class="text-xl font-semibold text-gray-500">
-                  {{ $admin->discount
-                      ? (50 / 100) * ($admin->price)
-                      : $admin->price
-                  }}&nbsp;€
-              </p>
-            </div>
-            <div class="mb-9">
-              <p class="font-bold" >Reference:</p>
-              <p class="text-lg" >{{ $admin->ref }}</p>
-              <hr class="my-4" />
-              <p class="font-bold" >Discount:</p>
-              <p class="text-lg" >
-                  {{ $admin->discount
-                      ? 'None'
-                      : '-20%'
-                  }}
-              </p>
-            </div>
-            <div class="flex-auto flex gap-6">
-              <a href='admin/{{ $admin->id }}/edit' class="w-1/2 p-3 flex items-center justify-center rounded-lg bg-gray-900 text-white" >Edit</a>
-              <form class="w-1/2" action="admin/{{ $admin->id }}" method='POST' >
-                @csrf
-                @method('delete')
-                <button class="w-full p-3 flex items-center justify-center rounded-lg border border-gray-300" type="sumnit">Delete</button>              
-              </form>
-            </div>
-          </div>
+      @foreach ($categories as $category)
+      <div class="bg-white rounded-xl flex flew-wrap justify-between items-center w-full gap-6 p-6 mb-6 border-2 border-gray-200" >
+        <div class="w-2/12" >
+          <p class="font-bold" >Name:</p>
+          <p class="flex-auto text-xl capitalize">{{ $category->gender }}</p>
         </div>
-      @endforeach --}}
-    </div>
+        <div class="w-2/12" >
+          <p class="font-bold" >Id:</p>
+          <p class="flex-auto text-xl capitalize">{{ $category->id }}</p>
+        </div>
+        <div class="w-8/12 flex gap-6 justify-end" >
+          <a href='{{ route('categories.edit', $category->id ) }}' class="py-3 px-6 flex items-center justify-center rounded-lg bg-gray-900 text-white" >Edit</a>
+          <form action="{{ route('categories.destroy', $category->id ) }}" method='POST' >
+            @csrf
+            @method('delete')
+            <button class="w-full p-3 flex items-center justify-center rounded-lg border border-gray-300" type="sumnit">Delete</button>              
+          </form>
+        </div>
+      </div>
+      @endforeach
   @endsection
-@endif
 
