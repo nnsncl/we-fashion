@@ -55,7 +55,7 @@ class AdministrationController extends Controller
             'user_id' => auth()->user()->id
         ]);
 
-        return redirect('/admin');
+        return redirect('/admin/products');
     }
 
     /**
@@ -102,7 +102,7 @@ class AdministrationController extends Controller
                 'ref' => $request->input('ref')
         ]);
 
-        return redirect('/admin');
+        return redirect('/admin/products');
     }
 
     /**
@@ -116,6 +116,6 @@ class AdministrationController extends Controller
         $product = Administration::find($id);
         $product->delete();
 
-        return redirect('/admin');
+        return redirect('/admin/products');
     }
 }
