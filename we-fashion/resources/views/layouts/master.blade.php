@@ -11,7 +11,7 @@
 <body class="bg-gradient-to-r from-white to-gray-200 m-auto w-4/5" >
     <nav class="border-b border-gray-200 py-4 px-4 flex items-center justify-between mb-16">
         <div class="flex items-center gap-5" >
-            <a href="/products" style="color:#66EB9A;" class="text-md font-bold" >WF</a>
+            <a href="/" style="color:#66EB9A;" class="text-md font-bold" >WF</a>
             <a class="text-sm font-medium hover:text-gray-600 transition-colors duration-200 py-2" href="/discount">Offers</a>
             <a class="text-sm font-medium hover:text-gray-600 transition-colors duration-200 py-2" href="/men">Men</a>
             <a class="text-sm font-medium hover:text-gray-600 transition-colors duration-200 py-2" href="/women">Women</a>
@@ -25,7 +25,7 @@
                     </svg>    
                 </a>
                 @else
-                <a class="text-sm font-medium hover:text-gray-600 transition-colors duration-200 py-2" href="/admin">Admin</a>
+                <a class="text-sm font-medium hover:text-gray-600 transition-colors duration-200 py-2" href="/admin/products">Admin</a>
                 <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                     <svg width="24" height="24" viewBox="0 0 24 24">
                         <path d="M17,17.25V14H10V10H17V6.75L22.25,12L17,17.25M13,2C14.1,2 15,2.9 15,4V8H13V4H4V20H13V16H15V20C15,21.1 14.1,22 13,22H4C2.9,22 2,21.1 2,20V4C2,2.9 2.9,2 4,2H13Z" />

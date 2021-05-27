@@ -4,7 +4,7 @@
   @section('content')
     <div class="mb-16" >
         <h1 class="text-3xl sm:text-5xl lg:text-6xl leading-none font-extrabold text-gray-900 tracking-tight mb-3" >Hello,&nbsp;{{ Auth::user()->name }}</h1>
-        <a href="admin/create" class="w-full sm:w-80 px-6 py-3 flex items-center justify-center rounded-md bg-gray-900 text-white">Add a new product&nbsp;&rarr;</a>
+        <a href="{{ route('products.create') }}" class="w-full sm:w-80 px-6 py-3 flex items-center justify-center rounded-md bg-gray-900 text-white">Add a new product&nbsp;&rarr;</a>
     </div>
     {{ $administration->links() }}
     <div class="my-6 flex items-start justify-between flex-wrap gap-6" >
@@ -36,8 +36,8 @@
               </p>
             </div>
             <div class="flex-auto flex gap-6">
-              <a href='admin/{{ $admin->id }}/edit' class="w-1/2 p-3 flex items-center justify-center rounded-lg bg-gray-900 text-white" >Edit</a>
-              <form class="w-1/2" action="admin/{{ $admin->id }}" method='POST' >
+              <a href='{{ route('products.edit', $admin->id ) }}' class="w-1/2 p-3 flex items-center justify-center rounded-lg bg-gray-900 text-white" >Edit</a>
+              <form class="w-1/2" action="{{ route('products.destroy', $admin->id ) }}" method='POST' >
                 @csrf
                 @method('delete')
                 <button class="w-full p-3 flex items-center justify-center rounded-lg border border-gray-300" type="sumnit">Delete</button>              

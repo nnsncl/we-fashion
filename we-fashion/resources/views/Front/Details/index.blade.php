@@ -38,7 +38,7 @@
                   <option disabled >XL</option>
                 </select>
               </label>
-            <a href="/products" class="text-base font-medium rounded-lg p-3 bg-blue-600 text-white">Add to cart</a>
+            <a href="/" class="text-base font-medium rounded-lg p-3 bg-blue-600 text-white">Add to cart</a>
         </div>
     </section>
 @endsection
