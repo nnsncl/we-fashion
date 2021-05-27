@@ -20,10 +20,10 @@ class AdministrationController extends Controller
     public function index()
     {
         $administration = Administration::paginate(15);
+
         return view('admin.index', [
             'administration' => $administration
         ]);
-
     }
 
     /**
@@ -55,8 +55,6 @@ class AdministrationController extends Controller
             'user_id' => auth()->user()->id
         ]);
 
-
-
         return redirect('/admin');
     }
 
@@ -80,6 +78,7 @@ class AdministrationController extends Controller
     public function edit($id)
     {
         $product = Administration::find($id);
+        
         return view('admin.edit')->with('product', $product);
     }
 
