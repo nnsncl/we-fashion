@@ -85,12 +85,25 @@
                 </fieldset>
                 <fieldset class="flex flex-col mb-3">
                     <label class="font-bold mb-1" for='category_id'>Category</label>
-                    <input class="text-lg outline-none py-3" name="category_id" type="text" value="{{ $product->category_id }}" placeholder="{{ $product->category_id }}" />
+                        <select class="form-select block w-full p-3 rounded-lg"  name="category_id">
+                        <option selected disabled >Select an option</option>
+                          @foreach ($categories as $id => $gender)
+                            <option
+                                {{
+                                    (!is_null($product->category) and $product->category->id == $id)
+                                        ? 'selected' 
+                                        : ''
+                                }}
+                                value="{{ $id }}"
+                            >{{ $gender }}
+                            </option>
+                          @endforeach
+                        </select>
                 </fieldset>
             </div>
         </div>
         <div class="flex-auto flex gap-6">
-            <button class="w-1/2 p-3 flex items-center justify-center rounded-md bg-black text-white" type="submit">Create</button>
+            <button class="w-1/2 p-3 flex items-center justify-center rounded-md bg-black text-white" type="submit">Edit</button>
             <a href="{{ route('products.index') }}" class="w-1/2 p-3 flex items-center justify-center rounded-md border border-gray-300" >Cancel</a>
         </div>
     </form>

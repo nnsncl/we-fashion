@@ -84,7 +84,19 @@
                 </fieldset>
                 <fieldset class="flex flex-col mb-3">
                     <label class="font-bold mb-1" for='category_id'>Category</label>
-                    <input class="text-lg outline-none py-3" name='category_id' placeholder="1, 2" />
+                        <select class="form-select block w-full p-3 rounded-lg"  name="category_id">
+                        <option selected disabled >Select an option</option>
+                          @foreach ($categories as $id => $gender)
+                            <option
+                                {{
+                                    old("category_id") == $id
+                                        ? 'selected'
+                                        : ''
+                                }}
+                                value="{{ $id }}"
+                            >{{ $gender }}</option>
+                          @endforeach
+                        </select>
                 </fieldset>
             </div>
         </div>

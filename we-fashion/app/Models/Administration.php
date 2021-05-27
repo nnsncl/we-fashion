@@ -21,6 +21,7 @@ class Administration extends Model
         'published',
         'discount',
         'ref',
+        'category_id',
         'user_id'
     ];
     

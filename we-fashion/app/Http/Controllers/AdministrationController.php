@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Administration;
 use App\Models\Product;
+use App\Models\Category;
 
 class AdministrationController extends Controller
 {
@@ -20,9 +21,11 @@ class AdministrationController extends Controller
     public function index()
     {
         $administration = Administration::paginate(15);
+        $categories = Category::pluck('gender', 'id')->all();
 
         return view('admin.index', [
-            'administration' => $administration
+            'administration' => $administration,
+            'categories' => $categories
         ]);
     }
 
@@ -33,7 +36,11 @@ class AdministrationController extends Controller
      */
     public function create()
     {
-        return view('admin.create');
+        $categories = Category::pluck('gender', 'id')->all();
+
+        return view('admin.create', [
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -52,10 +59,11 @@ class AdministrationController extends Controller
             'published' => $request->input('published'),
             'discount' => $request->input('discount'),
             'ref' => $request->input('ref'),
+            'category_id' => $request->input('category_id'),
             'user_id' => auth()->user()->id
         ]);
 
-        return redirect('/admin/products');
+        return redirect()->route('products.index');
     }
 
     /**
@@ -78,8 +86,12 @@ class AdministrationController extends Controller
     public function edit($id)
     {
         $product = Administration::find($id);
+        $categories = Category::pluck('gender', 'id')->all();
         
-        return view('admin.edit')->with('product', $product);
+        return view('admin.edit', [
+            'product' => $product,
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -99,6 +111,7 @@ class AdministrationController extends Controller
                 'size' => $request->input('size'),
                 'published' => $request->input('published'),
                 'discount' => $request->input('discount'),
+                'category_id' => $request->input('category_id'),
                 'ref' => $request->input('ref')
         ]);
 
