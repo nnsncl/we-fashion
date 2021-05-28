@@ -53,6 +53,21 @@ class AdministrationController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required|integer|min:0',
+            'published' => 'required',
+            'discount' => 'required',
+            'ref' => 'required',
+            'category_id' => 'required',
+            'image' => 'required|mimes:jpg,png,jpeg|max:5048',
+        ]);
+
+        // Prevent files to have the same names.
+        $image_name = 'images/'.time().'.'.$request->image->extension();
+        $request->image->move(public_path('images'), $image_name);
+
         $product = Product::create([
             'name' => $request->input('name'),
             'description' => $request->input('description'),
@@ -63,7 +78,8 @@ class AdministrationController extends Controller
             'category_id' => $request->input('category_id'),
             'user_id' => auth()->user()->id
         ]);
-
+        
+        $product->image()->create(["link" => $image_name]);
         $product->sizes()->attach($request->input('sizes'));
 
         return redirect()->route('products.index');
