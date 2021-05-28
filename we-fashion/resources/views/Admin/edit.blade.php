@@ -12,91 +12,125 @@
             <div class="w-full flex justify-between flex-col mb-5" >
                 <fieldset class="flex flex-col mb-3 ">
                     <label class="font-bold mb-1" for='name'>Name</label>
-                    <input class="text-lg outline-none py-3" type="text" name='name' value="{{ $product->name }}" placeholder="{{ $product->name }}" />
+                    <input
+                        class="text-lg outline-none py-3"
+                        type="text"
+                        name='name'
+                        value="{{ $product->name }}"
+                        placeholder="{{ $product->name }}"
+                    />
                 </fieldset>
                 <fieldset class="flex flex-col mb-3">
                     <label class="font-bold mb-1" for='description'>Description</label>
-                    <input class="text-lg outline-none py-3" type="text" name='description' value="{{ $product->description }}" placeholder="{{ $product->description }}" />
+                    <input
+                        class="text-lg outline-none py-3"
+                        type="text"
+                        name='description'
+                        value="{{ $product->description }}"
+                        placeholder="{{ $product->description }}"
+                    />
                 </fieldset>
                 <fieldset class="flex flex-col mb-3">
                     <label class="font-bold mb-1" for='price'>Price</label>
-                    <input class="text-lg outline-none py-3" name='price' type='number' value="{{ $product->price }}" placeholder="{{ $product->price }}" />
+                    <input
+                        class="text-lg outline-none py-3"
+                        name='price'
+                        type='number'
+                        value="{{ $product->price }}"
+                        placeholder="{{ $product->price }}"
+                    />
                 </fieldset>
                 <fieldset class="flex flex-col mb-3">
-                      @foreach ($sizes as $id => $size)
-                      <label for='sizes[]' class="font-bold mb-1">{{ $size }}</label>
-                        <input
-                            class="text-lg outline-none py-3"
-                            {{-- Change into array on blob --}}
-                            name="sizes[]" 
-                            type="checkbox"
-                            value="{{ $id }}"
-                            @if (is_null($product->sizes) == false and in_array(
-                                    $id, $product
-                                        ->sizes()
-                                        ->pluck('id')
-                                        ->all() ))
-                                checked
-                            @endif
-                        />                
-                      @endforeach
-                </fieldset>
-                <fieldset class="flex gap-3 mb-3">
-                    <div>
-                        <label class="font-bold mb-1" for='published'>Public</label>
-                        <input
-                            class="text-lg outline-none py-3"
-                            name="published"
-                            type="radio"
-                            value="0"
-                            @if ($product->published === 0)
-                                checked
-                            @endif
-
-                        />
-                    </div>
-                    <div>
-                        <label class="font-bold mb-1" for='published'>Private</label>
-                        <input
-                            class="text-lg outline-none py-3"
-                            name="published"
-                            type="radio"
-                            value="1"
-                            @if ($product->published === 1)
-                                checked
-                            @endif
-                        />
+                    <label for='sizes[]' class="font-bold mb-1">Available sizes</label>
+                    <div class="flex gap-6">
+                        @foreach ($sizes as $id => $size)
+                        <span class="w-full md:w-12 flex gap-3 items-center" >
+                            <label for='sizes[]' class="font-light text-sm">{{ $size }}</label>
+                            <input
+                                class="text-lg outline-none py-3"
+                                {{-- Change into array on blob --}}
+                                name="sizes[]" 
+                                type="checkbox"
+                                value="{{ $id }}"
+                                @if (is_null($product->sizes) == false and in_array(
+                                        $id, $product
+                                            ->sizes()
+                                            ->pluck('id')
+                                            ->all() ))
+                                    checked
+                                @endif
+                            />      
+                        </span>
+                        @endforeach
                     </div>
                 </fieldset>
-                <fieldset class="flex gap-3 mb-3">
-                    <div>
-                        <label class="font-bold mb-1" for='discount'>Active offer</label>
-                        <input
-                            class="text-lg outline-none py-3"
-                            name="discount"
-                            type="radio"
-                            value="0"
-                            @if ($product->discount === 0)
-                                checked
-                            @endif
-                        />
+                <fieldset class="mb-3">
+                    <label for='published' class="font-bold">Visibility</label>
+                    <div class="flex gap-6 mt-1">
+                        <span>
+                            <label class="font-light" for='published'>Public</label>
+                            <input
+                                class="text-lg outline-none py-3"
+                                name="published"
+                                type="radio"
+                                value="0"
+                                @if ($product->published === 0)
+                                    checked
+                                @endif
+                            />
+                        </span>
+                        <span>
+                            <label class="font-light" for='published'>Private</label>
+                            <input
+                                class="text-lg outline-none py-3"
+                                name="published"
+                                type="radio"
+                                value="1"
+                                @if ($product->published === 1)
+                                    checked
+                                @endif
+                            />
+                        </span>
                     </div>
-                    <div>
-                        <label class="font-bold mb-1" for='discount'>Disable offer</label>
-                        <input
-                            class="text-lg outline-none py-3"
-                            name="discount"
-                            type="radio"
-                            value="1"
-                            @if ($product->discount === 1)
-                                checked
-                            @endif
-                        />
+                </fieldset>
+                <fieldset class="mb-3">
+                    <label for='published' class="font-bold">Offer</label>
+                    <div class="flex gap-6 mt-1">
+                        <span>
+                            <label class="font-light" for='published'>Active</label>
+                            <input
+                                class="text-lg outline-none py-3"
+                                name="discount"
+                                type="radio"
+                                value="0"
+                                @if ($product->discount === 0)
+                                    checked
+                                @endif
+                            />
+                        </span>
+                        <span>
+                            <label class="font-light" for='published'>Disabled</label>
+                            <input
+                                class="text-lg outline-none py-3"
+                                name="discount"
+                                type="radio"
+                                value="1"
+                                @if ($product->discount === 1)
+                                    checked
+                                @endif
+                            />
+                        </span>
                     </div>
                 </fieldset>
                 <fieldset class="flex flex-col mb-3">
                     <label class="font-bold mb-1" for='ref'>Reference</label>
-                    <input class="text-lg outline-none py-3" name="ref" type="text" value="{{ $product->ref }}" placeholder="{{ $product->ref }}"  />
+                    <input
+                        class="text-lg outline-none py-3"
+                        name="ref"
+                        type="text"
+                        value="{{ $product->ref }}"
+                        placeholder="{{ $product->ref }}"
+                    />
                 </fieldset>
                 <fieldset class="flex flex-col mb-3">
                     <label class="font-bold mb-1" for='category_id'>Category</label>

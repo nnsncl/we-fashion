@@ -27,13 +27,16 @@
                     {{  (50 / 100) * ($details->price) }}&nbsp;€
                 </span>
             </p>
-                <label class="block mb-9">Size</label>
+            <div class="mb-9" >
+                <label class="font-bold mb-1">Size</label>
                 <select class="form-select block w-full p-3 rounded-lg">
                   <option selected disabled>--Select a size--</option>
                   @foreach ($details->sizes as $size)
                     <option value={{ $size->value }} >{{ $size->value }}</option>                    
                   @endforeach
                 </select>
+            </div>
+                
               
             <a href="{{ route('index') }}" class="text-base font-medium rounded-lg p-3 bg-blue-600 text-white">Add to cart</a>
         </div>
