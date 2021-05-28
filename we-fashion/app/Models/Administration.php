@@ -22,7 +22,11 @@ class Administration extends Model
         'discount',
         'ref',
         'category_id',
-        'user_id'
+        'user_id',
+        'image'
     ];
-    
+
+    public function image() {
+        return $this->hasOne(Image::class);
+    }
 }

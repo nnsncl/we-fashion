@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Front extends Model
+class Product extends Model
 {
     use HasFactory;
 
@@ -15,14 +15,15 @@ class Front extends Model
         'price',
         'ref',
         'discount',
+        'image'
     ];
-
-    public function images() {
-        return $this->hasOne(ImagesModel::class);
-    }
 
     public function category() {
         return $this->belongsTo(Category::class);
+    }
+
+    public function image() {
+        return $this->hasOne(Image::class);
     }
 
     public $timestamps = false;

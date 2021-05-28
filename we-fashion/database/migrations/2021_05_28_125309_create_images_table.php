@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Images extends Migration
+class CreateImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,8 +15,16 @@ class Images extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('href');
-            $table->unsignedInteger('product_id');
+            $table->string('link');
+
+            $table->unsignedInteger("product_id")
+                    ->nullable();
+            
+            $table->foreign('product_id')
+                    ->references('id')
+                    ->on('products')
+                    ->onDelete('cascade');
+
         });
     }
 
@@ -27,6 +35,6 @@ class Images extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('images');
     }
 }

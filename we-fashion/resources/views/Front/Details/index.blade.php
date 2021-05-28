@@ -5,7 +5,7 @@
         <div class="mb-5 w-full md:w-1/2" >
             <img
                 class="rounded-3xl"
-                src="https://content.asos-media.com/-/media/images/articles/men/2019/02/22-fri/how-asos-does-new-season-denim/mw-asos-style-feed-staff-style-denim-01.jpg?h=1100&w=870&la=fr-FR&hash=7B8220F6CF8523ADAC864F06AF84411B"
+                src="{{ asset($details->image->link) }}"
                 alt={{ $details->name }}
             />
         </div>
