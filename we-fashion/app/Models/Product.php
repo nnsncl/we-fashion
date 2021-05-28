@@ -19,7 +19,8 @@ class Product extends Model
         'ref',
         'category_id',
         'user_id',
-        'image'
+        'image',
+        'sizes'
     ];
 
     public function category() {
@@ -28,6 +29,10 @@ class Product extends Model
 
     public function image() {
         return $this->hasOne(Image::class);
+    }
+
+    public function sizes() {
+        return $this->belongsToMany(Size::class);
     }
 
     public $timestamps = false;
