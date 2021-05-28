@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Size;
 
 class AdministrationController extends Controller
 {
@@ -36,9 +37,11 @@ class AdministrationController extends Controller
     public function create()
     {
         $categories = Category::pluck('gender', 'id')->all();
+        $sizes = Size::pluck('value', 'id')->all();
 
         return view('admin.create', [
-            'categories' => $categories
+            'categories' => $categories,
+            'sizes' => $sizes
         ]);
     }
 
@@ -50,17 +53,18 @@ class AdministrationController extends Controller
      */
     public function store(Request $request)
     {
-        Product::create([
+        $product = Product::create([
             'name' => $request->input('name'),
             'description' => $request->input('description'),
             'price' => $request->input('price'),
-            'size' => $request->input('size'),
             'published' => $request->input('published'),
             'discount' => $request->input('discount'),
             'ref' => $request->input('ref'),
             'category_id' => $request->input('category_id'),
             'user_id' => auth()->user()->id
         ]);
+
+        $product->sizes()->attach($request->input('sizes'));
 
         return redirect()->route('products.index');
     }
@@ -86,10 +90,12 @@ class AdministrationController extends Controller
     {
         $product = Product::find($id);
         $categories = Category::pluck('gender', 'id')->all();
+        $sizes = Size::pluck('value', 'id')->all();
         
         return view('admin.edit', [
             'product' => $product,
-            'categories' => $categories
+            'categories' => $categories,
+            'sizes' => $sizes
         ]);
     }
 
@@ -102,16 +108,16 @@ class AdministrationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Product::where('id', '=', $id)
-            ->update([
-                'name' => $request->input('name'),
-                'description' => $request->input('description'),
-                'price' => $request->input('price'),
-                'size' => $request->input('size'),
-                'published' => $request->input('published'),
-                'discount' => $request->input('discount'),
-                'category_id' => $request->input('category_id'),
-                'ref' => $request->input('ref')
+        $product = Product::find($id);
+        $product->sizes()->sync($request->sizes);
+        $product->update([
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'price' => $request->input('price'),
+            'published' => $request->input('published'),
+            'discount' => $request->input('discount'),
+            'category_id' => $request->input('category_id'),
+            'ref' => $request->input('ref')
         ]);
 
         return redirect('/admin/products');
