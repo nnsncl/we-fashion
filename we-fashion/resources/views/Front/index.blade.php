@@ -11,14 +11,8 @@
         <div class="flex items-start justify-center flex-wrap gap-12 md:gap-32" >    
             @foreach ($products as $product)
                 <article class="w-full md:w-4/12 ">
-                    <header class="mb-5 relative " >
-                        <img class=" w-100 rounded-3xl" src="{{ asset($product->image->link) }}" alt={{ $product->name }}>
-                        <div class="absolute z-10 top-0 right-0 px-3 py-2 m-5 rounded-xl text-white text-bold bg-gradient-to-br from-yellow-400 via-red-500 to-pink-500 " >
-                            {{  $product->category_id === 1
-                                    ? '♀'
-                                    : '♂'
-                            }}ê
-                        </div>
+                    <header style="max-height: 620px;" class="mb-5 flex justify-center items-start overflow-hidden rounded-3xl" >
+                        <img style="min-height:620px; max-width:none; " class=" w-full md:w-auto" src="{{ asset($product->image->link) }}" alt={{ $product->name }}>
                     </header>
                     <div class="mb-2" >
                         <span class="text-gray-400 line-through font-bold text-lg uppercase eading-none align-baseline">
