@@ -21,8 +21,8 @@
               <p class="flex-auto text-xl font-semibold">{{ $admin->name }}</p>
               <p class="text-xl font-semibold text-gray-500">
                   {{ $admin->discount
-                      ? (50 / 100) * ($admin->price)
-                      : $admin->price
+                      ? $admin->price
+                      : (50 / 100) * ($admin->price)
                   }}&nbsp;€
               </p>
             </div>
@@ -34,7 +34,7 @@
               <p class="text-lg" >
                   {{ $admin->discount
                       ? 'None'
-                      : '-20%'
+                      : '-50%'
                   }}
               </p>
             </div>
