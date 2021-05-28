@@ -23,8 +23,23 @@
                     <input class="text-lg outline-none py-3" name='price' type='number' value="{{ $product->price }}" placeholder="{{ $product->price }}" />
                 </fieldset>
                 <fieldset class="flex flex-col mb-3">
-                    <label class="font-bold mb-1" for='size'>Size</label>
-                    <input class="text-lg outline-none py-3" type="text" name='size' value="{{ $product->size }}" placeholder="{{ $product->size }}" />
+                      @foreach ($sizes as $id => $size)
+                      <label for='sizes[]' class="font-bold mb-1">{{ $size }}</label>
+                        <input
+                            class="text-lg outline-none py-3"
+                            {{-- Change into array on blob --}}
+                            name="sizes[]" 
+                            type="checkbox"
+                            value="{{ $id }}"
+                            @if (is_null($product->sizes) == false and in_array(
+                                    $id, $product
+                                        ->sizes()
+                                        ->pluck('id')
+                                        ->all() ))
+                                checked
+                            @endif
+                        />                
+                      @endforeach
                 </fieldset>
                 <fieldset class="flex gap-3 mb-3">
                     <div>

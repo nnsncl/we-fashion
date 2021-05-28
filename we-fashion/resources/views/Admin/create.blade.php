@@ -20,10 +20,19 @@
                     <label class="font-bold mb-1" for='price'>Price</label>
                     <input class="text-lg outline-none py-3" name='price' type='number' placeholder="Product price" />
                 </fieldset>
+
                 <fieldset class="flex flex-col mb-3">
-                    <label class="font-bold mb-1" for='size'>Size</label>
-                    <input class="text-lg outline-none py-3" name='size' placeholder="Product size" />
-                </fieldset>
+                    @foreach ($sizes as $id => $size)
+                    <label for='size' class="font-bold mb-1">{{ $size }}</label>
+                      <input
+                          class="text-lg outline-none py-3"
+                          name="sizes[]"
+                          type="checkbox"
+                          value="{{ $id }}"
+                      />                
+                    @endforeach
+              </fieldset>
+
                 <fieldset class="flex gap-3 mb-3">
                     <div>
                         <label class="font-bold mb-1" for='published'>Public</label>
