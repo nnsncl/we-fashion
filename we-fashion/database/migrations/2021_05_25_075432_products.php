@@ -19,13 +19,6 @@ class Products extends Migration
             $table->string('name', 100);
             $table->text('description')->nullable();
             $table->float('price', 9, 2);
-            $table->enum('size', [
-               "XL",
-               "L",
-               "M",
-               "S",
-               "XS",
-            ])->default('L');
             $table->boolean("published")->default(false)->nullable();
             $table->boolean("discount")->default(false)->nullable();
             $table->string('ref', 16);
