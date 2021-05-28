@@ -14,7 +14,11 @@
       @foreach ($administration as $admin)
         <div class="flex w-full lg:w-5/12">
           <div class="flex-none w-44 relative">
-            <img src="https://content.asos-media.com/-/media/images/articles/men/2019/02/22-fri/how-asos-does-new-season-denim/mw-asos-style-feed-staff-style-denim-01.jpg?h=1100&w=870&la=fr-FR&hash=7B8220F6CF8523ADAC864F06AF84411B" alt="" class="h-full max-h-80 rounded-2xl absolute inset-0 w-full object-cover" />
+            <img
+                src="{{ asset($admin->image->link) }}"
+                alt=""
+                class="h-full max-h-80 rounded-2xl absolute inset-0 w-full object-cover"
+              />
           </div>
           <div class="flex-auto p-6">
             <div class="flex flex-wrap mb-9">

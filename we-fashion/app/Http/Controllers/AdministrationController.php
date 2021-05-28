@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Administration;
 use App\Models\Product;
 use App\Models\Category;
 
@@ -20,7 +19,7 @@ class AdministrationController extends Controller
      */
     public function index()
     {
-        $administration = Administration::paginate(15);
+        $administration = Product::paginate(15);
         $categories = Category::pluck('gender', 'id')->all();
 
         return view('admin.index', [
@@ -51,7 +50,7 @@ class AdministrationController extends Controller
      */
     public function store(Request $request)
     {
-        Administration::create([
+        Product::create([
             'name' => $request->input('name'),
             'description' => $request->input('description'),
             'price' => $request->input('price'),
@@ -85,7 +84,7 @@ class AdministrationController extends Controller
      */
     public function edit($id)
     {
-        $product = Administration::find($id);
+        $product = Product::find($id);
         $categories = Category::pluck('gender', 'id')->all();
         
         return view('admin.edit', [
@@ -103,7 +102,7 @@ class AdministrationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Administration::where('id', '=', $id)
+        Product::where('id', '=', $id)
             ->update([
                 'name' => $request->input('name'),
                 'description' => $request->input('description'),
@@ -126,7 +125,7 @@ class AdministrationController extends Controller
      */
     public function destroy($id)
     {
-        $product = Administration::find($id);
+        $product = Product::find($id);
         $product->delete();
 
         return redirect('/admin/products');
