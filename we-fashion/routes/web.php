@@ -17,8 +17,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 // Guests Routes
-Route::resource('/', ProductsController::class);
-
+Route::resource('/', ProductsController::class); 
 Route::get('/discount', [ProductsController::class, 'discount']);
 Route::get('/details/{product}', [ProductsController::class, 'details'])->where(['id' => '[0-9]+']);
 Route::get('/men', [ProductsController::class, 'menProducts']);
@@ -28,5 +27,3 @@ Route::get('/women', [ProductsController::class, 'womenProducts']);
 Auth::routes();
 Route::resource('/admin/products', AdministrationController::class);
 Route::resource('/admin/categories', CategoryController::class);
-
-Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
