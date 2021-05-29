@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,21 @@
     <title>We Fasion</title>
 </head>
 <body class="bg-gradient-to-r from-white to-gray-200 m-auto w-4/5" >
+    @if(Route::current()->getName() == 'login'||Route::current()->getName() == 'register')
+    <nav class="border-b border-gray-200 py-4 px-4 flex items-center justify-between mb-16">
+        <div class="flex items-center gap-5" >
+            <a class="text-sm font-medium hover:text-blue-600 transition-colors duration-200" href="{{ route('index') }}">
+                <span class="text-gray-300" >&larr;&nbsp;</span>Back home
+            </a>
+        </div>
+        <div class="flex items-center flex-wrap gap-5" >
+            <a class="text-sm font-medium hover:text-gray-600 transition-colors duration-200" href="{{ route('login') }}">{{ __('Login') }}</a>
+            @if (Route::has('register'))
+                <a class="text-sm font-medium hover:text-gray-600 transition-colors duration-200" href="{{ route('register') }}">{{ __('Register') }}</a>
+            @endif
+        </div>
+    </nav>
+    @else
     <nav class="border-b border-gray-200 py-4 px-4 flex items-center justify-between mb-16">
         <div class="flex items-center gap-5" >
             <a href="{{ route('index') }}" style="color:#66EB9A;" class="text-md font-bold" >WF</a>
@@ -40,7 +55,10 @@
             @endguest
         </div>
     </nav>
+    @endif
     @yield('content')
+    @if(Route::current()->getName() == 'login'||Route::current()->getName() == 'register')
+    @else
     <footer class="border-t border-gray-200 py-4 px-4 flex items-center justify-between my-16">
         <ul>
             <li>
@@ -76,5 +94,6 @@
             </li>
         </ul>
     </footer>
+    @endif
 </body>
 </html>
