@@ -39,9 +39,20 @@ class ProductsController extends Controller
         ]);
     }
 
+    public function menProducts(Product $men_products)
+    {
+        $men_products = Product::where('category_id', '=', 1)->paginate(6);
+        $categories = Category::pluck('gender', 'id')->all();
+
+        return view('front.categories.men.index', [
+            'men_products' => $men_products,
+            'categories' => $categories,
+        ]);
+    }
+    
     public function womenProducts(Product $women_products)
     {
-        $women_products = Product::where('category_id', '=', 1)->paginate(6);
+        $women_products = Product::where('category_id', '=', 2)->paginate(6);
         $categories = Category::pluck('gender', 'id')->all();
 
         return view('front.categories.women.index', [
@@ -50,14 +61,5 @@ class ProductsController extends Controller
         ]);
     }
 
-    public function menProducts(Product $men_products)
-    {
-        $men_products = Product::where('category_id', '=', 2)->paginate(6);
-        $categories = Category::pluck('gender', 'id')->all();
 
-        return view('front.categories.men.index', [
-            'men_products' => $men_products,
-            'categories' => $categories,
-        ]);
-    }
 }
