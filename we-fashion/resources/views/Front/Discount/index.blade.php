@@ -2,11 +2,11 @@
 
 @section('content')
     <section class="m-auto w-full " >
-        <div class="w-100 text-center mb-32 " >
-            <h1 class="text-3xl sm:text-5xl lg:text-6xl leading-none font-extrabold text-gray-900 tracking-tight mb-8" >Discount offers.</h1>
-        </div>
-        <div class="text-center bg-white rounded-xl py-9 mb-16" >
-            <p class="font-bold uppercase text-md">{{ count($discount_products) }} products found</p>
+        <div class="w-100 text-center mb-24" >
+            <h1 class="text-xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight mb-4" >
+                50% off sale styles with code:<hr class="border-none my-2" /><span class="bg-green-300 text-5xl text-white px-2" >SAVE50</span>
+            </h1>
+            <p class="font-bold uppercase text-sm">{{ count($discount_products) }} products</p>
         </div>
         <div class="flex items-start justify-center flex-wrap gap-12 md:gap-32" >
             @foreach ($discount_products as $discount_product)

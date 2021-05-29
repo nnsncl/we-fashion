@@ -2,13 +2,17 @@
 
 @section('content')
     <section class="m-auto w-full " >
-        <div class="w-100 text-center mb-16 " >
-            <h1 class="text-3xl sm:text-5xl lg:text-6xl leading-none font-extrabold text-gray-900 tracking-tight mb-8" >Nab your Holiday looks,<br/>night-out 'fits & more.</h1>
-        </div>
-        <div class="text-center bg-white rounded-xl py-9 mb-16" >
-            <p class="font-bold uppercase text-md">{{ count($products) }} products found</p>
-        </div>
-        <div class="flex items-start justify-center flex-wrap gap-12 md:gap-32" >    
+        <section
+            style="
+                background-image: url('https://www.asoscorporategiftcard.com/uploaded_files/1000/images/main-banner.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+            "
+            class="w-100 text-center mb-16 bg-white py-64 rounded-3xl " >
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl leading-none font-extrabold text-white tracking-tight filter drop-shadow-2xl" >Wear your<br />Best Moments</h1>
+        </section>
+        <p class="font-bold text-center mb-9 uppercase text-sm">{{ count($products) }} products</p>
+        <div class="flex items-start justify-center flex-wrap gap-12 md:gap-32" >
             @foreach ($products as $product)
                 <article class="w-full md:w-4/12 ">
                     <header

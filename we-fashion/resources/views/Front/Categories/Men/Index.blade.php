@@ -2,8 +2,12 @@
 
 @section('content')
     <section class="m-auto w-full " >
-        <div class="w-100 text-center mb-32 " >
-            <h1 class="text-3xl sm:text-5xl lg:text-6xl leading-none font-extrabold text-gray-900 tracking-tight mb-8" >Last men trends.</h1>
+        <div class="w-100 text-center mb-24 flex flex-col items-center justify-center" >
+            <h1 class="text-xl sm:text-3xl lg:text-4xl leading-none font-extrabold text-gray-900 tracking-tight mb-4" >
+                Men's New in
+            </h1>
+            <p class="font-medium text-sm mb-4 w-100 md:w-1/2">Looking for something new? Discover emerging trends,<br/>the latest clothing for men and the freshest new fits with our WEFASHION New In page.</p>
+            <p class="font-bold uppercase text-sm">{{ count($men_products) }} products</p>
         </div>
         <div class="flex items-start justify-center flex-wrap gap-12 md:gap-32" >
             @foreach ($men_products as $men_product)
