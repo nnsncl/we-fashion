@@ -14,10 +14,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $category_list = Category::all();
+        $categories = Category::pluck('gender', 'id')->all();
 
         return view('admin.category.index', [
-            'categories' => $categories
+            'category_list' => $category_list,
+            'categories' => $categories,
         ]);
     }
 
@@ -28,7 +30,11 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        $categories = Category::pluck('gender', 'id')->all();
+
+        return view('admin.category.create', [
+            'categories' => $categories,
+        ]);
     }
 
     /**
@@ -66,8 +72,12 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Category::find($id);
+        $categories = Category::pluck('gender', 'id')->all();
         
-        return view('admin.category.edit')->with('category', $category);
+        return view('admin.category.create', [
+            'category' => $category,
+            'categories' => $categories,
+        ]);
     }
 
     /**

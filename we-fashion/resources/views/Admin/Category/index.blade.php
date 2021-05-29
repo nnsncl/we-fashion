@@ -9,7 +9,7 @@
       <a class="text-sm font-light hover:text-gray-600 transition-colors duration-200 py-2" href="{{ route('products.index') }}">Products</a>
       <a class="text-sm font-bold hover:text-gray-600 transition-colors duration-200 py-2" href="{{ route('categories.index') }}">Categories</a>
     </div>
-      @foreach ($categories as $category)
+      @foreach ($category_list as $category)
       <div class="bg-white rounded-xl flex flew-wrap justify-between items-center w-full gap-6 p-6 mb-6 border-2 border-gray-200" >
         <div class="w-2/12" >
           <p class="font-bold" >Name:</p>

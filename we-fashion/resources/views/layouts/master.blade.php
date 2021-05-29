@@ -13,10 +13,10 @@
         <div class="flex items-center gap-5" >
             <a href="{{ route('index') }}" style="color:#66EB9A;" class="text-md font-bold" >WF</a>
             <a class="text-sm font-medium hover:text-gray-600 transition-colors duration-200 py-2" href="/discount">Offers</a>
-            @foreach ($categories as $category)
-                <a href="/{{ $category }}"
+            @foreach ($categories as $category_link)
+                <a href="/{{ $category_link }}"
                    class="capitalize text-sm font-medium hover:text-gray-600 transition-colors duration-200 py-2">
-                    {{ $category }}
+                {{ $category_link }}
                 </a>
             @endforeach
         </div>
