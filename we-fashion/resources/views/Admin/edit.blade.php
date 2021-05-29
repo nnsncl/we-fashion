@@ -12,7 +12,7 @@
     >
         @csrf
         @method('PUT')
-        <div class="flex flex-col-reverse md:flex-row justify-between flex-wrap items-start gap-3" >
+        <div class="flex flex-col-reverse md:flex-row justify-between flex-wrap items-start gap-6" >
             <div class="w-full md:w-1/2 flex justify-between flex-col mb-5" >
                 <fieldset class="flex flex-col mb-3 ">
                     <label class="font-bold mb-1" for='name'>Name</label>
@@ -153,22 +153,20 @@
                           @endforeach
                         </select>
                 </fieldset>
+                <div class="flex-auto flex gap-6  mt-9">
+                    <button class="w-1/2 p-3 flex items-center justify-center rounded-md bg-black text-white" type="submit">Edit</button>
+                    <a href="{{ route('products.index') }}" class="w-1/2 p-3 flex items-center justify-center rounded-md border border-gray-300" >Cancel</a>
+                </div>
             </div>
-            <div class="w-full md:w-1/3" >
-                <fieldset class="flex flex-col mb-3 ">
-                    <label class="font-bold mb-1" for='image'>Image</label>
-                    <input
-                        class="text-lg outline-none py-3"
-                        type="file"
-                        name='image'
-                    />
-                </fieldset>
+            <div class="w-full md:w-1/3 p-0 md:p-6" >
+                <img
+                    class="rounded-3xl"
+                    src="{{ asset($product->image->link) }}"
+                    alt={{ $product->name }}
+                />
             </div>
         </div>
 
-        <div class="flex-auto flex gap-6">
-            <button class="w-1/2 p-3 flex items-center justify-center rounded-md bg-black text-white" type="submit">Edit</button>
-            <a href="{{ route('products.index') }}" class="w-1/2 p-3 flex items-center justify-center rounded-md border border-gray-300" >Cancel</a>
-        </div>
+        
     </form>
 @endsection
