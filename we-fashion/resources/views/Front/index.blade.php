@@ -11,8 +11,14 @@
         <div class="flex items-start justify-center flex-wrap gap-12 md:gap-32" >    
             @foreach ($products as $product)
                 <article class="w-full md:w-4/12 ">
-                    <header style="max-height: 620px;" class="mb-5 flex justify-center items-start overflow-hidden rounded-3xl" >
-                        <img style="min-height:620px; max-width:none; " class=" w-full md:w-auto" src="{{ asset($product->image->link) }}" alt={{ $product->name }}>
+                    <header
+                        style="max-height: 620px;"
+                        class="mb-5 flex justify-center items-start overflow-hidden rounded-3xl">
+                        <img
+                            style="min-height:620px; max-width:none; "
+                            class=" w-full md:w-auto"
+                            src="{{ asset($product->image->link) }}"
+                            alt={{ $product->name }} />
                     </header>
                     <div class="mb-2" >
                         <span class="text-gray-400 line-through font-bold text-lg uppercase eading-none align-baseline">

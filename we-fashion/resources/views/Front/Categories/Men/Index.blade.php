@@ -8,13 +8,14 @@
         <div class="flex items-start justify-center flex-wrap gap-12 md:gap-32" >
             @foreach ($men_products as $men_product)
                 <article class="w-full md:w-4/12 ">
-                    <header class="relative mb-5" >
+                    <header
+                    style="max-height: 620px;"
+                    class="mb-5 flex justify-center items-start overflow-hidden rounded-3xl">
                         <img
-                            class="w-100 rounded-3xl"
-                            src="https://content.asos-media.com/-/media/images/articles/men/2019/02/22-fri/how-asos-does-new-season-denim/mw-asos-style-feed-staff-style-denim-01.jpg?h=1100&w=870&la=fr-FR&hash=7B8220F6CF8523ADAC864F06AF84411B"
-                            alt={{ $men_product->name }}
-                        />
-                        <div class="absolute z-10 top-0 right-0 px-3 py-2 m-5 rounded-xl text-white text-bold bg-gradient-to-br from-yellow-400 via-red-500 to-pink-500 " >♂</div>
+                            style="min-height:620px; max-width:none; "
+                            class=" w-full md:w-auto"
+                            src="{{ asset($men_product->image->link) }}"
+                            alt={{ $men_product->name }} />
                     </header>
                     <span class="text-gray-400 line-through mb-1 font-bold text-lg uppercase eading-none align-baseline">
                         {{ $men_product->price }}&nbsp;€
@@ -27,6 +28,9 @@
                     <a href='/details/{{ $men_product->id }}' class="text-base font-medium rounded-lg p-3 bg-gray-200 text-black">Product details</a>
                 </article>
             @endforeach
+        </div>
+        <div class="w-100 text-center my-16 " >
+            {{ $men_products->links() }}
         </div>
 </section>
 @endsection
