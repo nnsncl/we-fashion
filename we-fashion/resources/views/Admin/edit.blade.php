@@ -161,7 +161,7 @@
             <div class="w-full md:w-1/3 p-0 md:p-6" >
                 <img
                     class="rounded-3xl"
-                    src="{{ asset($product->image->link) }}"
+                    src="{{ asset('images/'.$product->image->link) }}"
                     alt={{ $product->name }}
                 />
             </div>

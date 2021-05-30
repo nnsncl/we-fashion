@@ -5,7 +5,7 @@
         <div class="mb-5 w-full md:w-1/2" >
             <img
                 class="rounded-3xl"
-                src="{{ asset($details->image->link) }}"
+                src="{{ asset('images/'.$details->image->link) }}"
                 alt={{ $details->name }}
             />
         </div>

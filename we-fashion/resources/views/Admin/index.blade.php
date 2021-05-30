@@ -15,7 +15,7 @@
         <div class="flex w-full lg:w-5/12">
           <div class="flex-none w-44 relative">
             <img
-                src="{{ asset($admin->image->link) }}"
+                src="{{ asset('images/'.$admin->image->link) }}"
                 alt=""
                 class="h-full max-h-80 rounded-2xl absolute inset-0 w-full object-cover"
               />

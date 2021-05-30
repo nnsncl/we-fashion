@@ -40,10 +40,9 @@ class ProductsSeeder extends Seeder
                                 ->slice(0, rand(1, 5))
                                 ->all();
 
-                $files = Storage::allFiles($category->gender === 'women' ? 'public/images/women' : 'public/images/men');
-                $files_names = str_replace("public/", "", $files);
+                $files = Storage::allFiles($category->gender === 'women' ? '/women' : '/men');
                 $fileindex = array_rand($files);
-                $file = $files_names[$fileindex];
+                $file = $files[$fileindex];
                 
                 $product->image()->create([ 'link' => $file ]);
                 $product->sizes()->attach($sizes);

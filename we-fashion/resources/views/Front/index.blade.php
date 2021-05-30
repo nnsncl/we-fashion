@@ -21,7 +21,7 @@
                         <img
                             style="min-height:620px; max-width:none; "
                             class=" w-full md:w-auto"
-                            src="{{ asset($product->image->link) }}"
+                            src="{{ asset('images/'.$product->image->link) }}"
                             alt={{ $product->name }} />
                     </header>
                     <div class="mb-2" >

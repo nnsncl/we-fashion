@@ -18,7 +18,7 @@
                         <img
                             style="min-height:620px; max-width:none; "
                             class=" w-full md:w-auto"
-                            src="{{ asset($men_product->image->link) }}"
+                            src="{{ asset('images/'.$men_product->image->link) }}"
                             alt={{ $men_product->name }} />
                     </header>
                     <span class="text-gray-400 line-through mb-1 font-bold text-lg uppercase eading-none align-baseline">
